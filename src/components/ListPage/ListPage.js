@@ -4,7 +4,7 @@ import Body from './Body'
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-const LandingPage = () => {
+const ListPage = () => {
 	return (
 		<React.Fragment>
 			<CssBaseline />
@@ -16,4 +16,4 @@ const LandingPage = () => {
 	)
 }
 
-export default LandingPage
+export default ListPage

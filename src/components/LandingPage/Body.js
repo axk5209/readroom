@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Container, Typography, Box, InputLabel, MenuItem, FormControl, Select, Grid, Button } from '@material-ui/core'
-
+import {Link} from "react-router-dom"
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab'
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -43,7 +43,7 @@ const Body = () => {
 		<Container align="center">
 			<Box p={6} />
 
-			<Typography variant="h4" className={classes.message}>I would like to read about .... </Typography>
+			<Typography variant="h4" className={classes.message}>I would like to read about... </Typography>
 			<Box p={3} />
 			<ToggleButtonGroup orientation="vertical" value={category} exclusive onChange={handleCategoryChange} size="large">
 				<ToggleButton value="entertainment" aria-label="entertainment" className={classes.buttons}>
@@ -60,7 +60,7 @@ const Body = () => {
 			<Grid container direction="row" alignItems="center" justify="center">
 				<Grid item>
 					<Typography variant="h4" className={classes.message}>
-						... in the country of
+						...in the country of
 					</Typography>
 				</Grid>
 				<Box pr={4} />
@@ -84,8 +84,7 @@ const Body = () => {
 				</Grid>
 			</Grid>
 			<Box p={3} />
-			<Button variant = "outlined" color = "primary" size ="large" style={{textTransform: "none", fontSize: "30px", minWidth: '30%', minHeight: '10%'}}>Make Room!</Button>
-
+			<Button component = {Link} to = {`/list/${category}/${"us"}`} variant= "outlined" color = "primary" size ="large" style={{textTransform: "none", fontSize: "30px", minWidth: '30%', minHeight: '10%'}}>Make Room!</Button>
 		</Container>
 	)
 }
