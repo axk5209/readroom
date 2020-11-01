@@ -3,6 +3,8 @@ import { Container, Typography, Box, InputLabel, MenuItem, FormControl, Select, 
 import {Link} from "react-router-dom"
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab'
 import { makeStyles } from '@material-ui/core/styles';
+let ISO2Options = require('./ISO2Options.json')
+let ISO2ToName = require('./ISO2ToName.json')
 
 const useStyles = makeStyles((theme) => ({
 	message: {
@@ -28,15 +30,17 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Body = () => {
+	console.log(ISO2Options)
+	console.log(ISO2ToName)
 	const classes = useStyles();
 	const [category, setCategory] = React.useState('entertainment');
 	const handleCategoryChange = (_, newCategory) => {
 		setCategory(newCategory);
 	};
-	const [country, setAge] = React.useState(0);
+	const [country, setCountry] = React.useState("us");
 
 	const handleCountryChange = (event) => {
-		setAge(event.target.value);
+		setCountry(event.target.value);
 	};
 
 	return (
@@ -75,16 +79,18 @@ const Body = () => {
 							onChange={handleCountryChange}
 							label="Country"
 						>
-							<MenuItem value={0}>Select</MenuItem>
-							<MenuItem value={10}>Ten</MenuItem>
-							<MenuItem value={20}>Twenty</MenuItem>
-							<MenuItem value={30}>Thirty</MenuItem>
+							
+						{
+							ISO2Options.map((ISO2Option) => 
+								<MenuItem value={ISO2Option}>{ISO2ToName[ISO2Option.toUpperCase()]}</MenuItem>
+							)
+						}
 						</Select>
 					</FormControl>
 				</Grid>
 			</Grid>
 			<Box p={3} />
-			<Button component = {Link} to = {`/list/${category}/${"us"}`} variant= "outlined" color = "primary" size ="large" style={{textTransform: "none", fontSize: "30px", minWidth: '30%', minHeight: '10%'}}>Make Room!</Button>
+			<Button component = {Link} to = {`/list/${category}/${country}`} variant= "outlined" color = "primary" size ="large" style={{textTransform: "none", fontSize: "30px", minWidth: '30%', minHeight: '10%'}}>Make Room!</Button>
 		</Container>
 	)
 }

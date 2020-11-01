@@ -41,7 +41,7 @@ function SimpleCard(props) {
 		setData(props.data)
 	}, [props.data])
 	return (
-		<Box py = {5}>
+		<Box py={5}>
 			{
 				data &&
 				<Card className={classes.card}>
@@ -52,13 +52,15 @@ function SimpleCard(props) {
 									{data.source.name}
 								</Typography>
 								<Typography variant="headline" component="h2">
-									{data.title.substr(0, data.title.lastIndexOf("-")-1)}
+									{data.title.substr(0, data.title.lastIndexOf("-") - 1)}
 								</Typography>
 								<Typography className={classes.pos} color="textSecondary">
 									{(new Date(data.publishedAt)).toDateString()}
 								</Typography>
-								<Typography component="p">
-									{`"${data.description}"`}
+								<Typography component="p" style={{ textTransform: "italic" }}>
+									<Box fontStyle="italic">
+										{`${data.description}`}
+      								</Box>
 								</Typography>
 							</CardContent>
 						</Grid>
@@ -74,10 +76,9 @@ function SimpleCard(props) {
 						<Grid container xs={12} align="center"
 							alignItems="center"
 							justify="center">
-							<CardActions>
-								<Box py={1}>
-									<Button size="large" href={data.url} variant="contained" fullWidth style={{ minWidth: "300px" }}>Read More</Button>
-								</Box>
+							<CardActions style={{ minWidth: "100%" }} >
+								<Button size="large" href={data.url} fullWidth>Read More</Button>
+								<Box py={4} />
 							</CardActions>
 						</Grid>
 					</Grid>
