@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/readroom/static/js/main.ca3e2e83.chunk.js",
-    "main.js.map": "/readroom/static/js/main.ca3e2e83.chunk.js.map",
+    "main.js": "/readroom/static/js/main.0fb3345f.chunk.js",
+    "main.js.map": "/readroom/static/js/main.0fb3345f.chunk.js.map",
     "runtime-main.js": "/readroom/static/js/runtime-main.837a7518.js",
     "runtime-main.js.map": "/readroom/static/js/runtime-main.837a7518.js.map",
     "static/js/2.5ffd55bf.chunk.js": "/readroom/static/js/2.5ffd55bf.chunk.js",
     "static/js/2.5ffd55bf.chunk.js.map": "/readroom/static/js/2.5ffd55bf.chunk.js.map",
     "index.html": "/readroom/index.html",
-    "precache-manifest.18ff3b83c3e57b0240145e8dfd8a363e.js": "/readroom/precache-manifest.18ff3b83c3e57b0240145e8dfd8a363e.js",
+    "precache-manifest.425ca24bb465c5069932ffe14e2911b3.js": "/readroom/precache-manifest.425ca24bb465c5069932ffe14e2911b3.js",
     "service-worker.js": "/readroom/service-worker.js",
     "static/js/2.5ffd55bf.chunk.js.LICENSE.txt": "/readroom/static/js/2.5ffd55bf.chunk.js.LICENSE.txt",
     "static/media/HeaderLogo.png": "/readroom/static/media/HeaderLogo.4175f600.png"
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.837a7518.js",
     "static/js/2.5ffd55bf.chunk.js",
-    "static/js/main.ca3e2e83.chunk.js"
+    "static/js/main.0fb3345f.chunk.js"
   ]
 }
