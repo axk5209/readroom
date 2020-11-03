@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import CardMedia from '@material-ui/core/CardMedia';
+import { DateRangeSharp } from '@material-ui/icons';
+let AlternateVisual = require('../../images/AlternateVisual.png')
 
 const styles = {
 	card: {
@@ -36,48 +38,56 @@ const styles = {
 
 function SimpleCard(props) {
 	const { classes } = props;
-	const [data, setData] = React.useState(null)
+	const [dataReceived, setDataReceived] = React.useState(false)
+	const [source, setSource] = React.useState(null);
+	const [title, setTitle] = React.useState(null);
+	const [date, setDate] = React.useState(null);
+	const [description, setDescription] = React.useState(null);
+	const [imageSrc, setImageSrc] = React.useState(null);
+	const [url, setUrl] = React.useState(null);
 	React.useEffect(() => {
-		setData(props.data)
+		setDataReceived(props.data)
+		setSource(props.data.source.name)
+		setTitle(props.data.title.substr(0, props.data.title.lastIndexOf("-") - 1))
+		setDate((new Date(props.data.publishedAt)).toDateString())
+		setDescription(props.data.description ? `${props.data.description}` : "\n")
+		setImageSrc(props.data.urlToImage ? props.data.urlToImage : AlternateVisual)
+		setUrl(props.data.url)
 	}, [props.data])
 	return (
 		<Box py={5}>
 			{
-				data &&
+				dataReceived &&
 				<Card className={classes.card}>
 					<Grid container>
-						<Grid container sm={8}>
+						<Grid container md={8} sm={7}>
 							<CardContent>
-								<Typography className={classes.title} color="textSecondary">
-									{data.source.name}
-								</Typography>
-								<Typography variant="headline" component="h2">
-									{data.title.substr(0, data.title.lastIndexOf("-") - 1)}
-								</Typography>
-								<Typography className={classes.pos} color="textSecondary">
-									{(new Date(data.publishedAt)).toDateString()}
-								</Typography>
-								<Typography component="p" style={{ textTransform: "italic" }}>
-									<Box fontStyle="italic">
-										{`${data.description}`}
-      								</Box>
-								</Typography>
+								<Typography className={classes.title} color="textSecondary"> {source} </Typography>
+								<Typography variant="headline" component="h2"> {title} </Typography>
+								<Typography className={classes.pos} color="textSecondary"> {date}</Typography>
+									<Typography component="p" style={{ textTransform: "italic" }}>
+										<Box fontStyle="italic">
+											{description}
+										</Box>
+									</Typography>
 							</CardContent>
 						</Grid>
-						<Grid container sm={4} align="center"
+						<Grid container md={4} sm={5} align="center"
 							alignItems="center"
 							justify="center">
-							<img
-								className={classes.img}
-								alt="Article Visual"
-								src={data.urlToImage}
-							/>
+							<Box py={4}>
+								<img
+									className={classes.img}
+									alt="Article Visual"
+									src={imageSrc}
+								/>
+							</Box>
 						</Grid>
 						<Grid container xs={12} align="center"
 							alignItems="center"
 							justify="center">
 							<CardActions style={{ minWidth: "100%" }} >
-								<Button size="large" href={data.url} fullWidth>Read More</Button>
+								<Button size="large" href={url} fullWidth>Read More</Button>
 								<Box py={4} />
 							</CardActions>
 						</Grid>
