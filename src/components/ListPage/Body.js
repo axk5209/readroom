@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import newsService from "../../services/news"
 import ListItem from "./ListItem"
 import Options from "./Options"
+import axios from 'axios'
+
 const devMode = true
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -37,6 +39,12 @@ const Body = () => {
 			console.log(newPageCount)
 			setPageCount(newPageCount)
 			setCardsData(data.articles)
+			const proxyOn = true;
+			const proxyURL = proxyOn ? "https://cors-anywhere.herokuapp.com/" : ""
+			const sampelPayWallArticleUrl = proxyURL + "https://www.businessinsider.com/stock-market-crash-expert-warns-financial-implosion-67-percent-plunge-2020-10"
+			const response = await axios.get(sampelPayWallArticleUrl)	
+			console.log(response)
+			console.log(response.data)
 		}
 		initializeContent()
 	}, [category, country, currPage])
