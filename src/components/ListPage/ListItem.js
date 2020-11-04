@@ -8,8 +8,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import CardMedia from '@material-ui/core/CardMedia';
-import { DateRangeSharp } from '@material-ui/icons';
 let AlternateVisual = require('../../images/AlternateVisual.png')
 
 const styles = {
