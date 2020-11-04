@@ -34,13 +34,26 @@ const Body = () => {
 	console.log(ISO2ToName)
 	const classes = useStyles();
 	const [category, setCategory] = React.useState('entertainment');
-	const handleCategoryChange = (_, newCategory) => {
-		setCategory(newCategory);
-	};
+
 	const [country, setCountry] = React.useState("us");
 
+	React.useEffect(() => {
+		const storedCategory = JSON.parse(window.localStorage.getItem('category'))
+		const storedCountry = JSON.parse(window.localStorage.getItem('country'))
+		storedCategory && setCategory(storedCategory)
+		storedCountry && setCountry(storedCountry)
+	},[])
+
+
+
+	const handleCategoryChange = (_, newCategory) => {
+		setCategory(newCategory);
+		window.localStorage.setItem("category", JSON.stringify(newCategory))
+	};
 	const handleCountryChange = (event) => {
-		setCountry(event.target.value);
+		let newCountry = event.target.value
+		setCountry(newCountry);
+		window.localStorage.setItem("country", JSON.stringify(newCountry))
 	};
  
 	return (
