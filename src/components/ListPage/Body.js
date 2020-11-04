@@ -37,7 +37,7 @@ const Body = () => {
 			setCardsData(data.articles)
 		}
 		initializeContent()
-	}, [category, country)
+	}, [category, country])
 
 	return (
 		<Container maxWidth = "md">
