@@ -27,9 +27,9 @@ const Body = () => {
 	// const [singleCardData, setSingleCardData] = React.useState(null);
 	React.useEffect(() => {
 		async function initializeContent () {
-			let data = await newsService.getTopHeadlines(category, country)
+			let data = await newsService.getTopHeadlines(category, country, currPage)
 			console.log(data)
-			const newPageCount = Math.ceil(data.totalResults / data.articles.length)
+			const newPageCount = Math.ceil(data.totalResults / 20)
 			console.log(data.totalResults)
 			console.log(data.articles.length)
 			console.log(newPageCount)
@@ -37,14 +37,20 @@ const Body = () => {
 			setCardsData(data.articles)
 		}
 		initializeContent()
-	}, [category, country])
+	}, [category, country, currPage])
+
+	const handlePageChange = (_, newPage) => {
+		setCurrPage(newPage)
+		document.body.scrollTop = 0; 
+  		document.documentElement.scrollTop = 0
+	}
 
 	return (
 		<Container maxWidth = "md">
 			<Box p={6} />
 			{
 				pageCount > 0 && (
-					<Pagination count={pageCount} color="primary" size = "large" classes = {{ul: classes.paginationUL }}/>
+					<Pagination count={pageCount} color="primary" size = "large" classes = {{ul: classes.paginationUL }} page = {currPage} onChange = {handlePageChange}/>
 				)
 			}
 			{
@@ -52,7 +58,7 @@ const Body = () => {
 			}
 			{
 				pageCount > 0 && (
-						<Pagination count={pageCount} color="primary" size = "large" classes = {{ul: classes.paginationUL }}/>
+						<Pagination count={pageCount} color="primary" size = "large" classes = {{ul: classes.paginationUL }}  page = {currPage} onChange = {handlePageChange}/>
 				)
 			}
 			<Box p={6} />
