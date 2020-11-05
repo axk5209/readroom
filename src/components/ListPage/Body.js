@@ -6,9 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import newsService from "../../services/news"
 import ListItem from "./ListItem"
 import Options from "./Options"
-import axios from 'axios'
 
-const devMode = true
+const devMode = false
 const useStyles = makeStyles((theme) => ({
 	root: {
 	  '& > *': {
@@ -28,23 +27,12 @@ const Body = () => {
 	const [cardsData, setCardsData] = React.useState(null);
 	const [pageCount, setPageCount] = React.useState(0)
 	const [currPage, setCurrPage] = React.useState(1)
-	// const [singleCardData, setSingleCardData] = React.useState(null);
 	React.useEffect(() => {
 		async function initializeContent () {
 			let data = devMode ? {articles: [], totalResults: 0} : await newsService.getTopHeadlines(category, country, currPage)
-			console.log(data)
 			const newPageCount = Math.ceil(data.totalResults / 20)
-			console.log(data.totalResults)
-			console.log(data.articles.length)
-			console.log(newPageCount)
 			setPageCount(newPageCount)
 			setCardsData(data.articles)
-			const proxyOn = true;
-			const proxyURL = proxyOn ? "https://cors-anywhere.herokuapp.com/" : ""
-			const sampelPayWallArticleUrl = proxyURL + "https://www.businessinsider.com/stock-market-crash-expert-warns-financial-implosion-67-percent-plunge-2020-10"
-			const response = await axios.get(sampelPayWallArticleUrl)	
-			console.log(response)
-			console.log(response.data)
 		}
 		initializeContent()
 	}, [category, country, currPage])

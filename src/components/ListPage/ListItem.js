@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import newsService from "../../services/news"
 let AlternateVisual = require('../../images/AlternateVisual.png')
 
 const styles = {
@@ -43,6 +44,7 @@ function SimpleCard(props) {
 	const [description, setDescription] = React.useState(null);
 	const [imageSrc, setImageSrc] = React.useState(null);
 	const [url, setUrl] = React.useState(null);
+	const [hasPaywall, setHasPaywall] = React.useState(false)
 	React.useEffect(() => {
 		setDataReceived(props.data)
 		setSource(props.data.source.name)
@@ -51,7 +53,26 @@ function SimpleCard(props) {
 		setDescription(props.data.description ? `${props.data.description}` : "\n")
 		setImageSrc(props.data.urlToImage ? props.data.urlToImage : AlternateVisual)
 		setUrl(props.data.url)
+		determinePaywall(props.data.url)
 	}, [props.data])
+
+	async function determinePaywall (url) {
+		const urlHTMLText = await newsService.retrieveHTMLText(url)
+		const urlHTML = document.createElement('html')
+		urlHTML.innerHTML = urlHTMLText
+
+		const JSONLDElement = urlHTML.querySelector('script[type="application/ld+json"]')
+		if (!JSONLDElement) return;
+
+		const JSONLD = JSON.parse(JSONLDElement.innerText)
+		if (!JSONLDElement.hasOwnProperty('isAccessibleForFree')) return;
+
+		const newHasPaywall = !JSONLD.isAccessibleForFree
+		console.log(url)
+		console.log(newHasPaywall)
+		setHasPaywall(newHasPaywall)
+	}
+
 	return (
 		<Box py={5}>
 			{
