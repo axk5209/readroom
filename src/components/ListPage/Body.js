@@ -54,7 +54,7 @@ const Body = () => {
 				)
 			}
 			{
-				cardsData && cardsData.map(singleCardData => <ListItem data = {singleCardData} />)
+				cardsData && cardsData.map((singleCardData, index) => <ListItem data = {singleCardData} key = {index}/>)
 			}
 			{
 				pageCount > 0 && (

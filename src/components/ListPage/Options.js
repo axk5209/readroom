@@ -65,7 +65,7 @@ export default function MaterialUIPickers() {
 					variant="inline"
 					format="MM/dd/yyyy"
 					margin="normal"
-					id="date-picker-inline"
+					id="from-date-picker"
 					label="Publish Dates Starting From:"
 					value={fromDate}
 					onChange={handleFromDateChange}
@@ -78,7 +78,7 @@ export default function MaterialUIPickers() {
 					variant="inline"
 					format="MM/dd/yyyy"
 					margin="normal"
-					id="date-picker-inline"
+					id="to-date-picker"
 					label="Publish Dates Up Until:"
 					value={toDate}
 					onChange={handleToDateChange}

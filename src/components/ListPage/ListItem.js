@@ -79,11 +79,11 @@ function SimpleCard(props) {
 				dataReceived &&
 				<Card className={classes.card}>
 					<Grid container>
-						<Grid container md={8} sm={7}>
+						<Grid item md={8} sm={7}>
 							<CardContent>
 								<Typography className={classes.title} color="textSecondary"> {source} </Typography>
-								<Typography variant="headline" component="h2"> {title} </Typography>
-								<Typography className={classes.pos} color="textSecondary"> {date}</Typography>
+								<Typography variant="h6" style={{ fontWeight: "bold" }}> {title} </Typography>
+								<Typography className={classes.pos} color="textSecondary" > {date}</Typography>
 									<Typography component="p" style={{ textTransform: "italic" }}>
 										<Box fontStyle="italic">
 											{description}
@@ -91,9 +91,7 @@ function SimpleCard(props) {
 									</Typography>
 							</CardContent>
 						</Grid>
-						<Grid container md={4} sm={5} align="center"
-							alignItems="center"
-							justify="center">
+						<Grid item md={4} sm={5} align="center">
 							<Box py={4}>
 								<img
 									className={classes.img}
@@ -102,9 +100,7 @@ function SimpleCard(props) {
 								/>
 							</Box>
 						</Grid>
-						<Grid container xs={12} align="center"
-							alignItems="center"
-							justify="center">
+						<Grid item xs={12} align="center">
 							<CardActions style={{ minWidth: "100%" }} >
 								<Button size="large" href={url} fullWidth>Read More</Button>
 								<Box py={4} />
