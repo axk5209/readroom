@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
@@ -11,32 +10,32 @@ import Grid from '@material-ui/core/Grid'
 import newsService from "../../services/news"
 let AlternateVisual = require('../../images/AlternateVisual.png')
 
-const styles = {
+const useStyles = makeStyles({
 	card: {
 		minWidth: 275,
 	},
-	bullet: {
-		display: 'inline-block',
-		margin: '0 2px',
-		transform: 'scale(0.8)',
-	},
-	title: {
+	source: {
 		marginBottom: 16,
 		fontSize: 12,
 	},
-	pos: {
+	title: {
+		fontWeight: "bold" 
+	},
+	date: {
 		marginBottom: 12,
 	},
-	media: {
-		height: 140,
-	},
+
 	img: {
 		maxHeight: 140,
 	},
-}
+	button: {
+		minWidth: "100%"
+	}
+})
 
-function SimpleCard(props) {
-	const { classes } = props
+
+const SimpleCard = (props) => {
+	const classes = useStyles()
 	const [dataReceived, setDataReceived] = React.useState(false)
 	const [source, setSource] = React.useState(null)
 	const [title, setTitle] = React.useState(null)
@@ -89,10 +88,10 @@ function SimpleCard(props) {
 					<Grid container>
 						<Grid item md={8} sm={7}>
 							<CardContent>
-								<Typography className={classes.title} color="textSecondary"> {source} </Typography>
-								<Typography variant="h6" style={{ fontWeight: "bold" }}> {title} </Typography>
-								<Typography className={classes.pos} color="textSecondary" > {date}</Typography>
-									<Typography component="span" style={{ textTransform: "italic" }}>
+								<Typography className={classes.source} color="textSecondary"> {source} </Typography>
+								<Typography variant="h6" className = {classes.title}> {title} </Typography>
+								<Typography className={classes.date} color="textSecondary" > {date}</Typography>
+									<Typography component="span">
 										<Box fontStyle="italic">
 											{description}
 										</Box>
@@ -109,9 +108,8 @@ function SimpleCard(props) {
 							</Box>
 						</Grid>
 						<Grid item xs={12} align="center">
-							<CardActions style={{ minWidth: "100%" }} >
-								<Button size="large" href={url} fullWidth>Read More</Button>
-								<Box py={4} />
+							<CardActions>
+								<Button size="large" href={url} fullWidth className = {classes.button}>Read More</Button>
 							</CardActions>
 						</Grid>
 					</Grid>
@@ -122,8 +120,4 @@ function SimpleCard(props) {
 	)
 }
 
-SimpleCard.propTypes = {
-	classes: PropTypes.object.isRequired,
-}
-
-export default withStyles(styles)(SimpleCard)
+export default SimpleCard

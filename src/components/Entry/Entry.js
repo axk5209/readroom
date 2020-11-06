@@ -2,11 +2,10 @@ import React from 'react'
 import {
 	Switch, Route, Redirect
 } from "react-router-dom"
-
 import LandingPage from '../LandingPage/LandingPage'
 import ListPage from '../ListPage/ListPage'
 
-const NotLoggedIn = () => {
+const Entry = () => {
 
 	return (
 		<Switch>
@@ -21,4 +20,4 @@ const NotLoggedIn = () => {
 	)
 }
 
-export default NotLoggedIn
+export default Entry

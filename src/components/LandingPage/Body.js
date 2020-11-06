@@ -1,37 +1,40 @@
 import React from 'react'
-import { Container, Typography, Box, InputLabel, MenuItem, FormControl, Select, Grid, Button } from '@material-ui/core'
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { 
+	Container, Typography, Box, InputLabel, MenuItem, FormControl, Select, Grid, Button 
+} from '@material-ui/core'
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab'
 import { makeStyles } from '@material-ui/core/styles'
-let ISO2Options = require('./ISO2Options.json')
-let ISO2ToName = require('./ISO2ToName.json')
+
+const ISO2Options = require('../../data/ISO2Options.json')
+const ISO2ToName = require('../../data/ISO2ToName.json')
 
 const useStyles = makeStyles((theme) => ({
-	message: {
+	outerBox: {
+		backgroundColor: "#fdf7ff"
+	},
+	selectionText: {
 		flexGrow: 1,
 		fontWeight: "bold",
 		color: "indigo"
 	},
-	subheading: {
-		flexGrow: 1,
+	toggleButtons: {
 		color: "indigo",
 	},
-	buttons: {
-		color: "indigo",
-	},
-	formControl: {
+	countrySelection: {
 		margin: theme.spacing(1),
 		minWidth: 120,
 	},
-	selectEmpty: {
-		marginTop: theme.spacing(2),
-	},
+	makeRoomButton: {
+		textTransform: "none",
+		fontSize: "30px",
+		minWidth: '30%',
+		minHeight: '10%'
+	}
 }))
 
 
 const Body = () => {
-	console.log(ISO2Options)
-	console.log(ISO2ToName)
 	const classes = useStyles()
 	const [category, setCategory] = React.useState('entertainment')
 
@@ -42,7 +45,7 @@ const Body = () => {
 		const storedCountry = JSON.parse(window.localStorage.getItem('country'))
 		storedCategory && setCategory(storedCategory)
 		storedCountry && setCountry(storedCountry)
-	},[])
+	}, [])
 
 
 
@@ -50,61 +53,62 @@ const Body = () => {
 		setCategory(newCategory)
 		window.localStorage.setItem("category", JSON.stringify(newCategory))
 	}
+
 	const handleCountryChange = (event) => {
 		let newCountry = event.target.value
 		setCountry(newCountry)
 		window.localStorage.setItem("country", JSON.stringify(newCountry))
 	}
- 
-	return (
-		<Container align="center">
-			<Box p={6} />
 
-			<Typography variant="h4" className={classes.message}>I would like to read about... </Typography>
-			<Box p={3} />
-			<ToggleButtonGroup orientation="vertical" value={category} exclusive onChange={handleCategoryChange} size="large">
-				<ToggleButton value="entertainment" aria-label="entertainment" className={classes.buttons}>
-					Entertainment
+	return (
+		<Box className={classes.outerBox}>
+			<Container align="center">
+				<Box p={6} />
+				<Typography variant="h4" className={classes.selectionText}>I would like to read about... </Typography>
+				<Box p={3} />
+				<ToggleButtonGroup value={category} onChange={handleCategoryChange} orientation="vertical" exclusive size="large">
+					<ToggleButton value="entertainment" className={classes.toggleButtons}>
+						Entertainment
 				</ToggleButton>
-				<ToggleButton value="sports" aria-label="sports" className={classes.buttons}>
-					Sports
+					<ToggleButton value="sports" className={classes.toggleButtons}>
+						Sports
 				</ToggleButton>
-				<ToggleButton value="technology" aria-label="technology" className={classes.buttons}>
-					Technology
+					<ToggleButton value="technology" className={classes.toggleButtons}>
+						Technology
 				</ToggleButton>
-			</ToggleButtonGroup>
-			<Box p={3} />
-			<Grid container direction="row" alignItems="center" justify="center">
-				<Grid item>
-					<Typography variant="h4" className={classes.message}>
-						...in the country of
+				</ToggleButtonGroup>
+				<Box p={3} />
+				<Grid container direction="row" alignItems="center" justify="center">
+					<Grid item>
+						<Typography variant="h4" className={classes.selectionText}>
+							...in the country of
 					</Typography>
+					</Grid>
+					<Box p={4} />
+					<Grid item>
+						<FormControl variant="outlined" className={classes.formControl} >
+							<InputLabel id="demo-simple-select-outlined-label">Country</InputLabel>
+							<Select
+								value={country}
+								onChange={handleCountryChange}
+								label="Country"
+							>
+								{
+									ISO2Options.map((ISO2Option, index) =>
+										<MenuItem key={index} value={ISO2Option}>{ISO2ToName[ISO2Option.toUpperCase()]}</MenuItem>
+									)
+								}
+							</Select>
+						</FormControl>
+					</Grid>
 				</Grid>
-				<Box pr={4} />
-				<Box pb={4} />
-				<Grid item>
-					<FormControl variant="outlined" className={classes.formControl} >
-						<InputLabel id="demo-simple-select-outlined-label">Country</InputLabel>
-						<Select
-							labelId="demo-simple-select-outlined-label"
-							id="demo-simple-select-outlined"
-							value={country}
-							onChange={handleCountryChange}
-							label="Country"
-						>
-							
-						{
-							ISO2Options.map((ISO2Option) => 
-								<MenuItem value={ISO2Option}>{ISO2ToName[ISO2Option.toUpperCase()]}</MenuItem>
-							)
-						}
-						</Select>
-					</FormControl>
-				</Grid>
-			</Grid>
-			<Box p={3} />
-			<Button component = {Link} to = {`/list/${category}/${country}`} variant= "outlined" color = "primary" size ="large" style={{textTransform: "none", fontSize: "30px", minWidth: '30%', minHeight: '10%'}}>Make Room!</Button>
-		</Container>
+				<Box p={3} />
+				<Button component={Link} to={`/list/${category}/${country}`} variant="outlined" color="primary" size="large" className={classes.makeRoomButton}>
+					Make Room!
+					</Button>
+				<Box p = {10} />
+			</Container>
+		</Box>
 	)
 }
 
