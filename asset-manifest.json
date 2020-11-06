@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/readroom/static/js/main.2e07daa5.chunk.js",
-    "main.js.map": "/readroom/static/js/main.2e07daa5.chunk.js.map",
+    "main.js": "/readroom/static/js/main.84734d83.chunk.js",
+    "main.js.map": "/readroom/static/js/main.84734d83.chunk.js.map",
     "runtime-main.js": "/readroom/static/js/runtime-main.837a7518.js",
     "runtime-main.js.map": "/readroom/static/js/runtime-main.837a7518.js.map",
     "static/js/2.c16c1d50.chunk.js": "/readroom/static/js/2.c16c1d50.chunk.js",
     "static/js/2.c16c1d50.chunk.js.map": "/readroom/static/js/2.c16c1d50.chunk.js.map",
     "index.html": "/readroom/index.html",
-    "precache-manifest.3fc536fee3e8c864fbe23c4cb60ffe8c.js": "/readroom/precache-manifest.3fc536fee3e8c864fbe23c4cb60ffe8c.js",
+    "precache-manifest.dd333c13cbf59b3212c7d14ac8898c9d.js": "/readroom/precache-manifest.dd333c13cbf59b3212c7d14ac8898c9d.js",
     "service-worker.js": "/readroom/service-worker.js",
     "static/js/2.c16c1d50.chunk.js.LICENSE.txt": "/readroom/static/js/2.c16c1d50.chunk.js.LICENSE.txt",
     "static/media/AlternateVisual.png": "/readroom/static/media/AlternateVisual.9a5c5ddb.png",
@@ -16,6 +16,6 @@
   "entrypoints": [
     "static/js/runtime-main.837a7518.js",
     "static/js/2.c16c1d50.chunk.js",
-    "static/js/main.2e07daa5.chunk.js"
+    "static/js/main.84734d83.chunk.js"
   ]
 }
