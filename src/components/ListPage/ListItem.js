@@ -98,7 +98,7 @@ const SimpleCard = (props) => {
 									</Typography>
 							</CardContent>
 						</Grid>
-						<Grid item md={4} sm={5} align="center">
+						<Grid item container md={4} sm={5} align="center" justify = "center">
 							<Box py={4}>
 								<img
 									className={classes.img}

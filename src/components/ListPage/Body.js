@@ -48,6 +48,7 @@ const Body = () => {
 	}
 	const handleSearchButtonClick = () => {
 		setKeywordsToSearch(keywordsInput)
+		setKeywordsInput("")
 	}
 
 	return (
@@ -95,6 +96,7 @@ const Body = () => {
 				}
 				<Box p={6} />
 			</Container>
+			<Box p = {10} />
 		</Box >
 	)
 }

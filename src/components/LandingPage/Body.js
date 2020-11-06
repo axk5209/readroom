@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import { 
-	Container, Typography, Box, InputLabel, MenuItem, FormControl, Select, Grid, Button 
+import {
+	Container, Typography, Box, InputLabel, MenuItem, FormControl, Select, Grid, Button
 } from '@material-ui/core'
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab'
 import { makeStyles } from '@material-ui/core/styles'
@@ -80,11 +80,12 @@ const Body = () => {
 				<Box p={3} />
 				<Grid container direction="row" alignItems="center" justify="center">
 					<Grid item>
+						<Box p={1} />
 						<Typography variant="h4" className={classes.selectionText}>
-							...in the country of
-					</Typography>
+							...in the country of &nbsp; &nbsp;
+						</Typography>
+						<Box p={3} />
 					</Grid>
-					<Box p={4} />
 					<Grid item>
 						<FormControl variant="outlined" className={classes.formControl} >
 							<InputLabel id="demo-simple-select-outlined-label">Country</InputLabel>
@@ -100,14 +101,15 @@ const Body = () => {
 								}
 							</Select>
 						</FormControl>
+						<Box p ={2} />
 					</Grid>
 				</Grid>
 				<Box p={3} />
 				<Button component={Link} to={`/list/${category}/${country}`} variant="outlined" color="primary" size="large" className={classes.makeRoomButton}>
 					Make Room!
 					</Button>
-				<Box p = {10} />
 			</Container>
+			<Box p={10} />
 		</Box>
 	)
 }
