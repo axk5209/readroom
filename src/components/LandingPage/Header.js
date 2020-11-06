@@ -1,12 +1,12 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
 import {
 	Link
 } from "react-router-dom"
-import LinkTag from '@material-ui/core/Link';
+import LinkTag from '@material-ui/core/Link'
 
 let HeaderLogo = require('../../images/HeaderLogo.png')
 
@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 		fontWeight: "bold"
 	},
-}));
+}))
 
 export default function Header() {
-	const classes = useStyles();
+	const classes = useStyles()
 	return (
 		<div className={classes.root}>
 			<AppBar position="static" >
@@ -37,5 +37,5 @@ export default function Header() {
 				</Toolbar>
 			</AppBar>
 		</div>
-	);
+	)
 }

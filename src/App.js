@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Entry from './components/Entry/Entry'
 import {
 	HashRouter
@@ -9,7 +9,7 @@ function App() {
       	<HashRouter basename = '/'>
 			<Entry />
 		</HashRouter>
-  );
+  )
 }
 
-export default App;
+export default App

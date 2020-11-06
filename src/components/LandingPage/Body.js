@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Typography, Box, InputLabel, MenuItem, FormControl, Select, Grid, Button } from '@material-ui/core'
 import {Link} from "react-router-dom"
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 let ISO2Options = require('./ISO2Options.json')
 let ISO2ToName = require('./ISO2ToName.json')
 
@@ -26,16 +26,16 @@ const useStyles = makeStyles((theme) => ({
 	selectEmpty: {
 		marginTop: theme.spacing(2),
 	},
-}));
+}))
 
 
 const Body = () => {
 	console.log(ISO2Options)
 	console.log(ISO2ToName)
-	const classes = useStyles();
-	const [category, setCategory] = React.useState('entertainment');
+	const classes = useStyles()
+	const [category, setCategory] = React.useState('entertainment')
 
-	const [country, setCountry] = React.useState("us");
+	const [country, setCountry] = React.useState("us")
 
 	React.useEffect(() => {
 		const storedCategory = JSON.parse(window.localStorage.getItem('category'))
@@ -47,14 +47,14 @@ const Body = () => {
 
 
 	const handleCategoryChange = (_, newCategory) => {
-		setCategory(newCategory);
+		setCategory(newCategory)
 		window.localStorage.setItem("category", JSON.stringify(newCategory))
-	};
+	}
 	const handleCountryChange = (event) => {
 		let newCountry = event.target.value
-		setCountry(newCountry);
+		setCountry(newCountry)
 		window.localStorage.setItem("country", JSON.stringify(newCountry))
-	};
+	}
  
 	return (
 		<Container align="center">
