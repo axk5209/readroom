@@ -18,20 +18,4 @@ const getTopHeadlines = async (category, country, keywords, page) => {
 	}
 }
 
-const retrieveHTMLText = async (url) => {
-	const config = {
-		headers: {"Access-Control-Allow-Origin": "*"}
-	}
-	const proxyOn = true
-	const proxyURL = proxyOn ? "https://cors-anywhere.herokuapp.com/" : ""
-	const query = proxyURL + url
-	try {
-		const response = await axios.get(query, config)	
-		// console.log(response.data)
-		return response.data
-	}
-	catch (error) {
-		return null
-	}
-}
-export default {getTopHeadlines, retrieveHTMLText}
+export default {getTopHeadlines}

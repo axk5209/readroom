@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
-import newsService from "../../services/news"
 let AlternateVisual = require('../../images/AlternateVisual.png')
 
 const useStyles = makeStyles({
@@ -16,7 +15,7 @@ const useStyles = makeStyles({
 	},
 	source: {
 		marginBottom: 16,
-		fontSize: 12,
+		fontSize: 14,
 	},
 	title: {
 		fontWeight: "bold" 
@@ -30,7 +29,7 @@ const useStyles = makeStyles({
 	},
 	button: {
 		minWidth: "100%",
-		backgroundColor: "#9e62b269"
+		backgroundColor: "#bb8dff66"
 	}
 })
 
@@ -44,7 +43,6 @@ const SimpleCard = (props) => {
 	const [description, setDescription] = React.useState(null)
 	const [imageSrc, setImageSrc] = React.useState(null)
 	const [url, setUrl] = React.useState(null)
-	const [hasPaywall, setHasPaywall] = React.useState(false)
 	React.useEffect(() => {
 		setDataReceived(props.data)
 		setSource(props.data.source.name)
@@ -53,33 +51,7 @@ const SimpleCard = (props) => {
 		setDescription(props.data.description ? `${props.data.description}` : "\n")
 		setImageSrc(props.data.urlToImage ? props.data.urlToImage : AlternateVisual)
 		setUrl(props.data.url)
-		// determinePaywall(props.data.url)
 	}, [props.data])
-
-	async function determinePaywall (url) {
-		// try {
-			const urlHTMLText = await newsService.retrieveHTMLText(url)
-			if (!urlHTMLText) return
-	
-			const urlHTML = document.createElement('html')
-			urlHTML.innerHTML = urlHTMLText
-			const JSONLDElement = urlHTML.querySelector('script[type="application/ld+json"]')
-			if (!JSONLDElement) return
-			
-			const JSONLDElementText = JSONLDElement.innerText
-			console.log(JSONLDElementText)
-			const JSONLD = JSON.parse(JSONLDElementText)
-			if (!JSONLDElement.hasOwnProperty('isAccessibleForFree')) return
-	
-			const newHasPaywall = !JSONLD.isAccessibleForFree
-			console.log(url)
-			console.log(newHasPaywall)
-			setHasPaywall(newHasPaywall)
-		// }
-		// catch (e) {
-		// 	return;
-		// }
-	}
 
 	return (
 		<Box py={5}>
