@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/readworld/static/js/main.919017d8.chunk.js",
-    "main.js.map": "/readworld/static/js/main.919017d8.chunk.js.map",
+    "main.js": "/readworld/static/js/main.20119a6d.chunk.js",
+    "main.js.map": "/readworld/static/js/main.20119a6d.chunk.js.map",
     "runtime-main.js": "/readworld/static/js/runtime-main.266c5629.js",
     "runtime-main.js.map": "/readworld/static/js/runtime-main.266c5629.js.map",
     "static/js/2.08a99eba.chunk.js": "/readworld/static/js/2.08a99eba.chunk.js",
     "static/js/2.08a99eba.chunk.js.map": "/readworld/static/js/2.08a99eba.chunk.js.map",
     "index.html": "/readworld/index.html",
-    "precache-manifest.e9012ce350059d598affb1ed802d7ab7.js": "/readworld/precache-manifest.e9012ce350059d598affb1ed802d7ab7.js",
+    "precache-manifest.c57a8cd38d4ae109a6e1934060598c5a.js": "/readworld/precache-manifest.c57a8cd38d4ae109a6e1934060598c5a.js",
     "service-worker.js": "/readworld/service-worker.js",
     "static/js/2.08a99eba.chunk.js.LICENSE.txt": "/readworld/static/js/2.08a99eba.chunk.js.LICENSE.txt",
     "static/media/AlternateVisual.png": "/readworld/static/media/AlternateVisual.9a5c5ddb.png",
@@ -16,6 +16,6 @@
   "entrypoints": [
     "static/js/runtime-main.266c5629.js",
     "static/js/2.08a99eba.chunk.js",
-    "static/js/main.919017d8.chunk.js"
+    "static/js/main.20119a6d.chunk.js"
   ]
 }
