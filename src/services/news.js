@@ -1,5 +1,10 @@
 import axios from 'axios'
-const apiKey = "78b9d599c4f94f8fa3afb1a5458928d6" //need to make this more secure as an environment variable
+const apiKey = "78b9d599c4f94f8fa3afb1a5458928d6" 
+
+/**
+ * news service
+ * Provides abstractions for API calls - here there is just one: getting top headlines based on category, country, keywords, and page
+ */
 
 const getTopHeadlines = async (category, country, keywords, page) => {
 	let topHeadlinesUrl = "https://newsapi.org/v2/top-headlines?"

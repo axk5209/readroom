@@ -6,6 +6,11 @@ import {
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab'
 import { makeStyles } from '@material-ui/core/styles'
 
+/**
+ * Body of LandingPage
+ * Displays category selection and country selection options to user for news article query.
+ */
+
 const ISO2Options = require('../../data/ISO2Options.json')
 const ISO2ToName = require('../../data/ISO2ToName.json')
 

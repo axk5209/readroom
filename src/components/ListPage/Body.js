@@ -7,6 +7,11 @@ import SearchIcon from "@material-ui/icons/Search"
 import newsService from "../../services/news"
 import ListItem from "./ListItem"
 
+/**
+ * Body of ListPage
+ * Gets user query params from URL, gets results from news service, displays paginated-view of article list in results, feeds each article to ListItem component to format article data.
+ */
+
 const devMode = false
 const useStyles = makeStyles({
 	paginationUL: {

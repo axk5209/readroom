@@ -9,6 +9,11 @@ import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 let AlternateVisual = require('../../images/AlternateVisual.png')
 
+/**
+ * ListItem of ListPage
+ * Receives article data to display and returns card which formats the relevant article data in visually pleasing way.
+ */
+
 const useStyles = makeStyles({
 	card: {
 		minWidth: 275,

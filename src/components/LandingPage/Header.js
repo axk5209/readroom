@@ -3,9 +3,13 @@ import { Link } from "react-router-dom"
 import { makeStyles } from '@material-ui/core/styles'
 import {AppBar, Toolbar, Typography, Link as LinkTag } from  '@material-ui/core'
 
-
-
 let HeaderLogo = require('../../images/HeaderLogo.png')
+
+/**
+ * Header of LandingPage
+ * AppBar which displays icon and name of application.
+ */
+
 
 const useStyles = makeStyles({
 	title: {

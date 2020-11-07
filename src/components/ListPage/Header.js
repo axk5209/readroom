@@ -4,6 +4,10 @@ import { makeStyles } from '@material-ui/core/styles'
 import {AppBar, Toolbar, Typography, Link as LinkTag } from  '@material-ui/core'
 
 
+/**
+ * Header of ListPage
+ * AppBar which displays icon and name of application.
+ */
 
 let HeaderLogo = require('../../images/HeaderLogo.png')
 

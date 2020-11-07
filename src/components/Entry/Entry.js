@@ -5,6 +5,11 @@ import {
 import LandingPage from '../LandingPage/LandingPage'
 import ListPage from '../ListPage/ListPage'
 
+/**
+ * Entry
+ * Entry point of application: Renders either LandingPage or ListPage based on route in URL.
+ */
+
 const Entry = () => {
 
 	return (
