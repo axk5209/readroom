@@ -65,7 +65,7 @@ const Body = () => {
 
 
 	const handleCategoryChange = (_, newCategory) => {
-		setCategory(newCategory)
+		if (newCategory !== null) setCategory(newCategory)
 		window.localStorage.setItem("category", JSON.stringify(newCategory))
 	}
 
@@ -91,7 +91,7 @@ const Body = () => {
 				</ToggleButton>
 					<ToggleButton value="technology" className={classes.toggleButtons}>
 						Technology
-				</ToggleButton>
+					</ToggleButton>
 				</ToggleButtonGroup>
 				<Box p={3} />
 				<Grid container direction="row" alignItems="center" justify="center">
