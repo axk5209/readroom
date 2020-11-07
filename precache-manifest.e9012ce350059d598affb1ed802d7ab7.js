@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "45cdf5799c0cdf604e96d96f751c5406",
+    "revision": "faf9fed36d509349e34b9ca818faae4c",
     "url": "/readworld/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/readworld/static/js/2.08a99eba.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "eeb9be9f50184e941d3e",
-    "url": "/readworld/static/js/main.a0acd99c.chunk.js"
+    "revision": "f77037a812627b2b40cb",
+    "url": "/readworld/static/js/main.919017d8.chunk.js"
   },
   {
     "revision": "226d0a9f3decd65dd171",
