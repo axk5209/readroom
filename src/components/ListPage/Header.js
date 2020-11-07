@@ -26,7 +26,7 @@ const Header = () => {
 					<img src={HeaderLogo} className ={classes.logo} alt = "logo"/>
 				</LinkTag>
 				<Typography variant="h4" className={classes.title}>
-					ead Room
+					ead World
 				</Typography>
 			</Toolbar>
 		</AppBar>

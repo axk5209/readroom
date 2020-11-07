@@ -8,7 +8,7 @@ import newsService from "../../services/news"
 import ListItem from "./ListItem"
 
 const devMode = false
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
 	paginationUL: {
 		justifyContent: "center",
 		color: "red"
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 	outerBox: {
 		backgroundColor: "#fdf7ff"
 	},
-}))
+})
 
 const Body = () => {
 	const classes = useStyles()
@@ -49,6 +49,7 @@ const Body = () => {
 	const handleSearchButtonClick = () => {
 		setKeywordsToSearch(keywordsInput)
 		setKeywordsInput("")
+
 	}
 
 	return (
@@ -61,6 +62,7 @@ const Body = () => {
 							id="standard-read-only-input"
 							label="Keywords:"
 							variant="outlined"
+							value = {keywordsInput}
 							onChange={handleKeywordsChange}
 						/>
 					</Grid>

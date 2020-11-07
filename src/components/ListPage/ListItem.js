@@ -29,7 +29,8 @@ const useStyles = makeStyles({
 		maxHeight: 140,
 	},
 	button: {
-		minWidth: "100%"
+		minWidth: "100%",
+		backgroundColor: "#9e62b269"
 	}
 })
 

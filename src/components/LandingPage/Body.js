@@ -12,6 +12,20 @@ const ISO2ToName = require('../../data/ISO2ToName.json')
 const useStyles = makeStyles((theme) => ({
 	outerBox: {
 		backgroundColor: "#fdf7ff"
+		// border: "4px dotted blue",
+		// padding: "15px",
+		// borderStyle: "outset"
+		// backgroundImage: "url(https://i.dlpng.com/static/png/6929579_preview.png)",
+		// backgroundSize: "1300px 1300px"
+	},
+	innerBox: {
+		borderColor: "blue",
+		borderStyle: "outset",
+		borderWidth: "4px",
+		borderRadius: "20px"
+		// minWidth: "500px"
+		// backgroundImage: "url(https://i.dlpng.com/static/png/6929579_preview.png)",
+		// backgroundSize: "1300px 1300px"
 	},
 	selectionText: {
 		flexGrow: 1,
@@ -21,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 	toggleButtons: {
 		color: "indigo",
 	},
+
 	countrySelection: {
 		margin: theme.spacing(1),
 		minWidth: 120,
@@ -30,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: "30px",
 		minWidth: '30%',
 		minHeight: '10%'
-	}
+	},
 }))
 
 
@@ -62,9 +77,10 @@ const Body = () => {
 
 	return (
 		<Box className={classes.outerBox}>
-			<Container align="center">
+			<Box p={10} />
+			<Container align="center" className={classes.innerBox}>
 				<Box p={6} />
-				<Typography variant="h4" className={classes.selectionText}>I would like to read about... </Typography>
+				<Typography variant="h4" className={classes.selectionText}>I would like to read about:</Typography>
 				<Box p={3} />
 				<ToggleButtonGroup value={category} onChange={handleCategoryChange} orientation="vertical" exclusive size="large">
 					<ToggleButton value="entertainment" className={classes.toggleButtons}>
@@ -82,9 +98,9 @@ const Body = () => {
 					<Grid item>
 						<Box p={1} />
 						<Typography variant="h4" className={classes.selectionText}>
-							...in the country of &nbsp; &nbsp;
+							in the country of: &nbsp; &nbsp;
 						</Typography>
-						<Box p={3} />
+						<Box p={1} />
 					</Grid>
 					<Grid item>
 						<FormControl variant="outlined" className={classes.formControl} >
@@ -101,15 +117,16 @@ const Body = () => {
 								}
 							</Select>
 						</FormControl>
-						<Box p ={2} />
 					</Grid>
 				</Grid>
 				<Box p={3} />
 				<Button component={Link} to={`/list/${category}/${country}`} variant="outlined" color="primary" size="large" className={classes.makeRoomButton}>
-					Make Room!
+					Start Reading!
 					</Button>
+				<Box p={5} />
 			</Container>
 			<Box p={10} />
+
 		</Box>
 	)
 }
