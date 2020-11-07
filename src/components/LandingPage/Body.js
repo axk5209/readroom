@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 		margin: theme.spacing(1),
 		minWidth: 120,
 	},
-	makeRoomButton: {
+	startReadingButton: {
 		textTransform: "none",
 		fontSize: "30px",
 		minWidth: '30%',
@@ -120,7 +120,7 @@ const Body = () => {
 					</Grid>
 				</Grid>
 				<Box p={3} />
-				<Button component={Link} to={`/list/${category}/${country}`} variant="outlined" color="primary" size="large" className={classes.makeRoomButton}>
+				<Button component={Link} to={`/list/${category}/${country}`} variant="outlined" color="primary" size="large" className={classes.startReadingButton}>
 					Start Reading!
 					</Button>
 				<Box p={5} />

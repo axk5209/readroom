@@ -15,7 +15,7 @@ Your app should display search results in a user-friendly format that provides i
 
 ## Deployment
 
-You can view the live deployed version of this application at [axk5209.github.io/readroom](https://axk5209.github.io/readroom/)
+You can view the live deployed version of this application at [axk5209.github.io/readworld](https://axk5209.github.io/readworld/)
 
   
 ## Application Flow
@@ -64,7 +64,7 @@ There are two primary views in the application: the Landing Page and the List Pa
 
 Execute the following commands on your local machine to run this application locally
 
-1. `git clone https://github.com/axk5209/readroom.git` (clone down this repository)
+1. `git clone https://github.com/axk5209/readworld.git` (clone down this repository)
 
 2. `npm install` (install npm dependencies)
 
