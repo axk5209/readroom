@@ -12,20 +12,12 @@ const ISO2ToName = require('../../data/ISO2ToName.json')
 const useStyles = makeStyles((theme) => ({
 	outerBox: {
 		backgroundColor: "#fdf7ff"
-		// border: "4px dotted blue",
-		// padding: "15px",
-		// borderStyle: "outset"
-		// backgroundImage: "url(https://i.dlpng.com/static/png/6929579_preview.png)",
-		// backgroundSize: "1300px 1300px"
 	},
 	innerBox: {
 		borderColor: "blue",
 		borderStyle: "outset",
 		borderWidth: "4px",
 		borderRadius: "20px"
-		// minWidth: "500px"
-		// backgroundImage: "url(https://i.dlpng.com/static/png/6929579_preview.png)",
-		// backgroundSize: "1300px 1300px"
 	},
 	selectionText: {
 		flexGrow: 1,
@@ -76,7 +68,7 @@ const Body = () => {
 	}
 
 	return (
-		<Box className={classes.outerBox}>
+		<Box px = {1.5} className={classes.outerBox}>
 			<Box p={10} />
 			<Container align="center" className={classes.innerBox}>
 				<Box p={6} />
