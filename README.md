@@ -52,7 +52,7 @@ There are two primary views in the application: the Landing Page and the List Pa
   
 -  **Invalid URL  Extensions or No Articles Matching Keyword:** I handle invalid URL extensions and searches that have no results by displaying a message that states that there are no article's matching the user's criteria. This allows for an elegant handling of query errors and empty query results.
 
-  -  **General UI Philosophy:** I strove to make the UI as simple so that users do not have to think while using the application.
+-  **General UI Philosophy:** I strove to make the UI as simple so that users do not have to think while using the application.
 
 
 ## Dependencies
@@ -74,4 +74,4 @@ Execute the following commands on your local machine to run this application loc
 
 ## Authorship
 
-Application and README written by **Arham Kothari**
+Application and README written by **Arham Kothari** 
